@@ -8,6 +8,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 @RequestMapping("/shorten")
+@CrossOrigin(origins = {"http://localhost:63342", "http://127.0.0.1:63342"})
 public class UrlShortenerController {
 
     @Autowired
@@ -16,7 +17,7 @@ public class UrlShortenerController {
     @PostMapping
     public ResponseEntity<String> shortenUrl(@RequestBody String originalUrl){
         var code = urlShortenerService.shortenUrl(originalUrl);
-        return ResponseEntity.ok("http://localhost:8080/"+code);
+        return ResponseEntity.ok("http://localhost:8080/shorten/"+code);
     }
 
     @GetMapping("/{code}")
