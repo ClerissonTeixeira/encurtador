@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Encurtador de URL</h2>
+
+    <input 
+        type="text"
+        [(ngModel)]="urlInput"
+        placeholder="Digite a URL completa" 
+    />
+
+    <button (click)="shortenUrl()">Encurtar</button>
+
+    <p id="result" *ngIf="shortUrl">
+        URL encurtada:
+        <a [href]="shortUrl" target="_blank"> {{ shortUrl }}</a>
+    </p>
+
+    <p id="result" *ngIf="errorMessage">
+        {{ errorMessage }}
+    </p>
+</div>
